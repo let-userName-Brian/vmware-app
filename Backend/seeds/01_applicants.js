@@ -6,7 +6,7 @@ exports.seed = function(knex) {
       last_name: 'Doe',
       email: 'john.doe@gmail.com',
       phone: '123-456-7890',
-      skills: ['JavaScript', 'HTML', 'CSS'],
+      skills: ['JavaScript', ' HTML', ' CSS'],
       experience: '1 year',
       jobs_applied: [2, 3],
       can_start_now: true
@@ -17,7 +17,7 @@ exports.seed = function(knex) {
       last_name: 'Doe',
       email: 'jane.doe@gmail.com',
       phone: '123-456-7890',
-      skills: ['JavaScript', 'HTML', 'CSS'],
+      skills: ['JavaScript', ' HTML', ' CSS'],
       experience: '1 year',
       jobs_applied: [1, 2, 4],
       can_start_now: true
@@ -28,7 +28,7 @@ exports.seed = function(knex) {
       last_name: 'Doe',
       email: 'Bill.doe@gmail.com',
       phone: '123-456-7890',
-      skills: ['TypeScript', 'HTML', 'CSS'],
+      skills: ['TypeScript', ' HTML', 'CSS'],
       experience: '1 year',
       jobs_applied: [1,2,3],
       can_start_now: false
@@ -39,7 +39,7 @@ exports.seed = function(knex) {
       last_name: 'Hardy',
       email: 'brian.hardy@gmail.com',
       phone: '123-456-7890',
-      skills: ['JavaScript', 'HTML', 'CSS', 'TypeScript', 'React', 'Angular-ish', 'Node', 'Express', 'MongoDB', 'Postgres'],
+      skills: ['JavaScript', ' HTML', ' CSS', ' TypeScript', ' React', ' Angular-ish', ' Node', ' Express', ' MongoDB', ' Postgres'],
       experience: '4 year',
       jobs_applied: [3,6],
       can_start_now: true
@@ -50,7 +50,7 @@ exports.seed = function(knex) {
       last_name: 'Willy',
       email: 'Willy@gmail.com',
       phone: '123-456-7890',
-      skills: ['JavaScript', 'HTML', 'CSS', 'Angular', 'TypeScript'],
+      skills: ['JavaScript', ' HTML', ' CSS', ' Angular', ' TypeScript'],
       experience: '1 year',
       jobs_applied: [1,2,3,4,5],
       can_start_now: false
@@ -61,7 +61,7 @@ exports.seed = function(knex) {
       last_name: 'Door',
       email: 'Grey@gmail.com',
       phone: '123-456-7890',
-      skills: ['JavaScript', 'HTML', 'CSS', 'Angular', 'TypeScript'],
+      skills: ['JavaScript', ' HTML', ' CSS', ' Angular', ' TypeScript'],
       experience: '1 year',
       jobs_applied: [1,3],
       can_start_now: false

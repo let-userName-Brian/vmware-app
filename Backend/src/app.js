@@ -17,7 +17,7 @@ app.listen(Port, () => {
 });
 
 //routes
-app.get('/', (req, res) => {
+app.get('/applicants', (req, res) => {
     const query = knex('applicants').select('*');
     query.then(data => {
         res.send(data);
