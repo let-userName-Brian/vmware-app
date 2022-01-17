@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApplicantsComponent } from './applicants/applicants.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { StartNowComponent } from './start-now/start-now.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { StartNowComponent } from './start-now/start-now.component';
     HomeComponent,
     ApplicantsComponent,
     JobsComponent,
-    StartNowComponent
+    StartNowComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

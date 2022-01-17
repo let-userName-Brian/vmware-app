@@ -10,12 +10,24 @@
   bottom: 15px;
 }
 
-.more-button {
+/* .more-button {
   position: absolute;
   top: 5px;
   right: 10px;
-}
+} */
 
 .dashboard-card-content {
   text-align: center;
+}
+
+mat-card{
+  margin: 0;
+  background-color: #00364d;
+}
+
+.modal-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

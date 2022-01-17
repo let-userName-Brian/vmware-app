@@ -2,18 +2,18 @@
   <h1 class="mat-h1">Hiring Manager Dashboard</h1>
   <!-- card one -->
   <mat-grid-list cols="1" rowHeight="500px">
-    <mat-grid-tile >
+    <mat-grid-tile>
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             Applicants
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Add applicant</button>
-              <button mat-menu-item>Remove applicant</button>
-            </mat-menu>
+            
+              <div class="modal-container">
+                <button mat-menu-item (click)="openModal()">Add Applicant</button>
+                <div #modal></div>
+                <button mat-menu-item>Remove applicant</button>
+              </div>
+
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -23,9 +23,9 @@
     </mat-grid-tile>
   </mat-grid-list>
 
-   <!-- card two -->
-   <mat-grid-list cols="2" rows="3" rowHeight="650px">
-    <mat-grid-tile >
+  <!-- card two -->
+  <mat-grid-list cols="2" rows="3" rowHeight="650px">
+    <mat-grid-tile>
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -39,9 +39,9 @@
     </mat-grid-tile>
 
 
-   <!-- card three -->
-  
-    <mat-grid-tile >
+    <!-- card three -->
+
+    <mat-grid-tile>
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>

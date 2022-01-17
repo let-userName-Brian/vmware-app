@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { HomeComponent } from '../home/home.component';
+import { ModalService } from '../shared/shared.service';
 
 @Component({
   selector: 'app-applicants',
@@ -10,8 +11,8 @@ import { HomeComponent } from '../home/home.component';
 
 export class ApplicantsComponent extends HomeComponent {
 
-  constructor(appService: AppService) { 
-    super(appService)
+  constructor(appService: AppService, modalService: ModalService)  { 
+    super(appService, modalService)
   }
 
 }
