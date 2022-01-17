@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../app.service';
 
-interface Applicants {
+export interface Applicants {
   app_id: number,
   first_name: string,
   last_name: string,
@@ -13,6 +13,13 @@ interface Applicants {
   can_start_now: boolean,
 }
 
+interface Jobs {
+  job_id: number,
+  title: string,
+  description: string,
+  skills: Array<string>,
+  experience: string,
+}
 
 @Component({
   selector: 'app-home',
@@ -21,14 +28,39 @@ interface Applicants {
 })
 export class HomeComponent {
   applicants:Applicants[] = [];
+  jobs:Jobs[] = [];
+  canStartNow:Array<Applicants> = [];
 
   constructor(public appService: AppService) { }
 
+  addApplicantButtonClicked(applicant:Applicants) {
+    this.appService.addApplicant(applicant).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  
   ngOnInit() {
     this.appService.getApplicants().subscribe(
       res => {
         this.applicants = res;
-        console.log(this.applicants);
       });
+      
+      this.appService.getJobs().subscribe(
+        res => {
+          this.jobs = res;
+        }
+        );
+
+        this.appService.getCanStartFilteredApplicants().subscribe(
+          res => {
+            this.canStartNow = res;
+            console.log(this.canStartNow);
+          });
   }
 }

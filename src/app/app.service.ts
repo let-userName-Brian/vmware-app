@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Applicants } from './home/home.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,4 +13,16 @@ export class AppService {
   getApplicants(): Observable<any> {
     return this.httpClient.get('http://localhost:3001/applicants');
   }
+
+  getJobs(): Observable<any> {
+    return this.httpClient.get('http://localhost:3001/jobs');
+  }
+
+  getCanStartFilteredApplicants(): Observable<any> {
+    return this.httpClient.get('http://localhost:3001/applicants/can_start_now');
+  }
+
+addApplicant(applicant:Applicants): Observable<any> {
+  return this.httpClient.post('http://localhost:3001/applicants', applicant);
+};
 }

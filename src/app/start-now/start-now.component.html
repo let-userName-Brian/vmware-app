@@ -1,1 +1,8 @@
-<p>start-now works!</p>
+<h2> Who can start now?</h2>
+<ul class="list">
+  <li *ngFor="let app of canStartNow; let i = index" [attr.data-index]="i">
+    {{app.first_name + ' ' + app.last_name}}
+  </li>
+</ul>
+<footer>{{canStartNow.length}} applicants</footer>
+<h2> Who can start now?</h2>

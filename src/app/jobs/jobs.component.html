@@ -1,1 +1,21 @@
-<p>jobs works!</p>
+<clr-stack-view>
+  <clr-stack-block [clrStackViewLevel]="1" [clrStackViewSetsize]="3" [clrStackViewPosinset]="1">
+    <clr-stack-label>Job Title</clr-stack-label>
+    <clr-stack-content>Experience Needed</clr-stack-content>
+  </clr-stack-block>
+  <clr-stack-block [clrStackViewLevel]="1" [clrStackViewSetsize]="3" [clrStackViewPosinset]="2"
+  *ngFor="let job of jobs; let i = index" [attr.data-index]="i">
+    <clr-stack-label>{{job.title}}</clr-stack-label>
+    <clr-stack-content>{{job.experience}}</clr-stack-content>
+    <clr-stack-block>
+      <clr-stack-label>Description: </clr-stack-label>
+      <clr-stack-content>{{job.description}}</clr-stack-content>
+    </clr-stack-block>
+    <clr-stack-block>
+      <clr-stack-label>Skills:</clr-stack-label>
+      <clr-stack-content>{{job.skills}}</clr-stack-content>
+    </clr-stack-block>
+  </clr-stack-block>
+</clr-stack-view>
+<footer>{{jobs.length}} jobs</footer>
+

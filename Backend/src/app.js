@@ -17,11 +17,46 @@ app.listen(Port, () => {
 });
 
 //routes
-app.get('/applicants', (req, res) => {
+app.get('/applicants', (_, res) => {
     const query = knex('applicants').select('*');
     query.then(data => {
         res.send(data);
     });
 });
 
+//add applicant 
+app.post('/applicants', (req, res) => {
+    const { first_name, last_name, email, phone, skills, experience, jobs_applied, can_start_now } = req.body;
+    const query = knex('applicants').insert({ first_name, last_name, email, phone, skills, experience, jobs_applied, can_start_now });
+    query.then(data => {
+        res.send(data);
+    });
+});
+
+
+app.get('/jobs', (_, res) => {
+    const query = knex('jobs').select('*');
+    query.then(data => {
+        res.send(data);
+    });
+});
+
+//patch jobs
+app.patch('/jobs/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, description, experience, skills } = req.body;
+    const query = knex('jobs').where('id', id).update({ title, description, experience, skills });
+    query.then(data => {
+        res.send(data);
+    });
+});
+
+
+//get applicants that can_start_now === true
+app.get('/applicants/can_start_now', (_, res) => {
+    const query = knex('applicants').select('*').where('can_start_now', true);
+    query.then(data => {
+        res.send(data);
+    });
+});
 
