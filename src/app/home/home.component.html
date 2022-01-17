@@ -1,12 +1,12 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async; let i = index" [attr.data-index]="i" [colspan]="card.cols"
-      [rowspan]="card.rows">
+  <h1 class="mat-h1">Hiring Manager Dashboard</h1>
+  <!-- card one -->
+  <mat-grid-list cols="1" rowHeight="500px">
+    <mat-grid-tile >
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
+            Applicants
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -16,24 +16,40 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <clr-datagrid>
-            <clr-dg-column>User ID</clr-dg-column>
-            <clr-dg-column>Name</clr-dg-column>
-            <clr-dg-column>Email</clr-dg-column>
-            <clr-dg-column>Phone Number</clr-dg-column>
-            <clr-dg-column>Experiencee</clr-dg-column>
-            <clr-dg-column>Skills</clr-dg-column>
-            <clr-dg-row *ngFor="let app of applicants; let i = index" [attr.data-index]="i">
-              <clr-dg-cell>{{app.app_id}}</clr-dg-cell>
-              <clr-dg-cell>{{app.first_name + ' ' + app.last_name}}</clr-dg-cell>
-              <clr-dg-cell>{{app.email}}</clr-dg-cell>
-              <clr-dg-cell>{{app.phone}}</clr-dg-cell>
-              <clr-dg-cell>{{app.experience}}</clr-dg-cell>
-              <clr-dg-cell>{{app.skills}}</clr-dg-cell>
-            </clr-dg-row>
-            <clr-dg-footer>{{applicants.length}} applicants</clr-dg-footer>
-          </clr-datagrid>
+        <mat-card-content>
+          <app-applicants></app-applicants>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+   <!-- card two -->
+   <mat-grid-list cols="2" rows="3" rowHeight="650px">
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Jobs
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-jobs></app-jobs>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+   <!-- card three -->
+  
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Who can start now?
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-start-now></app-start-now>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

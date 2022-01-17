@@ -15,12 +15,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
+import { ApplicantsComponent } from './applicants/applicants.component';
+import { JobsComponent } from './jobs/jobs.component';
+import { StartNowComponent } from './start-now/start-now.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ApplicantsComponent,
+    JobsComponent,
+    StartNowComponent
   ],
   imports: [
     BrowserModule,
