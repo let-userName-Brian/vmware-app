@@ -19,6 +19,7 @@ import { ApplicantsComponent } from './applicants/applicants.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { StartNowComponent } from './start-now/start-now.component';
 import { ModalComponent } from './modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ModalComponent } from './modal/modal.component';
     MatIconModule,
     MatButtonModule,
     LayoutModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

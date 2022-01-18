@@ -26,8 +26,8 @@ app.get('/applicants', (_, res) => {
 
 //add applicant 
 app.post('/applicants', (req, res) => {
-    const { first_name, last_name, email, phone, skills, experience, jobs_applied, can_start_now } = req.body;
-    const query = knex('applicants').insert({ first_name, last_name, email, phone, skills, experience, jobs_applied, can_start_now });
+    const { first_name, last_name, email, phone, experience, skills } = req.body;
+    const query = knex('applicants').insert({ first_name, last_name, email, phone, experience, skills});
     query.then(data => {
         res.send(data);
     });

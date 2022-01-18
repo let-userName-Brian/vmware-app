@@ -17,7 +17,6 @@ export class ModalService {
   openModal(entry: ViewContainerRef, modalBody:NewApplicant) {
     let factory = this.resolver.resolveComponentFactory(ModalComponent);
     this.componentRef = entry.createComponent(factory);
-    this.componentRef.instance.NgModel = modalBody;
     this.componentRef.instance.closeMeEvent.subscribe(() => this.closeModal());
     this.componentRef.instance.confirmEvent.subscribe(() => this.confirm());
     this.componentSubscriber = new Subject<string>();

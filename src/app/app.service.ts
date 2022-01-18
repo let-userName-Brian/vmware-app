@@ -22,7 +22,8 @@ export class AppService {
     return this.httpClient.get('http://localhost:3001/applicants/can_start_now');
   }
 
-addApplicant(applicant:Applicants): Observable<any> {
-  return this.httpClient.post('http://localhost:3001/applicants', applicant);
+addApplicant(data:Applicants): Observable<any> {
+  console.log(data);
+  return this.httpClient.post('http://localhost:3001/applicants', data);
 };
 }

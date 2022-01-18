@@ -10,15 +10,15 @@ import { Subscription } from 'rxjs';
 import { ModalService } from '../shared/shared.service';
 
 export interface Applicants {
-  app_id: number,
+  app_id?: number,
   first_name: string,
   last_name: string,
   email: string,
   phone: string,
-  skills: Array<string>,
+  skills?: string,
   experience: string,
-  jobs_applied: Array<number>,
-  can_start_now: boolean,
+  jobs_applied?: Array<number>,
+  can_start_now?: boolean,
 }
 
 interface Jobs {
@@ -53,16 +53,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       last_name: '',
       email: '',
       phone: '',
-      skills: [],
+      skills: '',
       experience: '',
     });
-    // this.modalService.subscribe(
-    //   (data) => {
-    //     if (data === 'confirm') {
-    //       this.appService.addApplicant(applicant);
-    //     }
-    //   }
-    // );
   }
 
   ngOnDestroy(): void {
@@ -78,13 +71,25 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.log(error);
       }
     );
+    //update component when applicants are added
+    this.sub = this.appService.getApplicants().subscribe(
+      (data) => {
+        this.applicants = data;
+        this.canStartNow = this.applicants.filter(applicant => applicant.can_start_now);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 
   ngOnInit() {
+
     this.appService.getApplicants().subscribe(
       res => {
         this.applicants = res;
+        console.log('apps at home', this.applicants);
       });
 
     this.appService.getJobs().subscribe(
@@ -96,7 +101,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.appService.getCanStartFilteredApplicants().subscribe(
       res => {
         this.canStartNow = res;
-        console.log(this.canStartNow);
       });
+
+      
   }
 }
