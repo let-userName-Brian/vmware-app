@@ -5,19 +5,19 @@
     <mat-grid-tile>
       <mat-card class="dashboard-card">
         <mat-card-header>
-          <mat-card-title>
+          <mat-card-title style="margin-bottom: 0; margin-top: 1; ">
             Applicants
-            
-              <div class="modal-container">
-                <button mat-menu-item (click)="openModal()">Add Applicant</button>
-                <div #modal></div>
-                <button mat-menu-item>Remove applicant</button>
-              </div>
-
           </mat-card-title>
+
         </mat-card-header>
-        <mat-card-content>
-          <app-applicants></app-applicants>
+        <div class="modal-container" style="display: flex; justify-content:right;">
+          <button class="buttons-main" style="margin-right: 10px" (click)="openModal()">Add Applicant</button>
+          <div #modal></div>
+          <button class="buttons-main">Remove applicant</button>
+        </div>
+
+        <mat-card-content style='max-height: 400px; overflow-y: scroll;'>
+          <app-applicants ></app-applicants>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -32,7 +32,7 @@
             Jobs
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content style="max-height: 550px; overflow-y: scroll;">
           <app-jobs></app-jobs>
         </mat-card-content>
       </mat-card>
@@ -48,8 +48,8 @@
             More About your Applicants
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-          <app-start-now></app-start-now>
+        <mat-card-content style="overflow-y: scroll;">
+          <app-start-now  ></app-start-now>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

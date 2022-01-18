@@ -14,7 +14,6 @@ import {
 })
 export class ModalComponent implements OnInit, OnDestroy {
   constructor() {}
-  @Input() title: string = '';
   @Input() body: string = '';
   @Output() closeMeEvent = new EventEmitter();
   @Output() confirmEvent = new EventEmitter();
