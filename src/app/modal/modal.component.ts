@@ -50,6 +50,7 @@ export class ModalComponent implements OnInit, OnDestroy {
       }
     );
   }
+  
   closeMe() {
     this.closeMeEvent.emit();
   }

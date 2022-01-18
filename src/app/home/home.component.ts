@@ -4,10 +4,11 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
-  ViewContainerRef,
+  ViewContainerRef
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ModalService } from '../shared/shared.service';
+import { Observable } from 'rxjs';
 
 export interface Applicants {
   app_id?: number,
@@ -84,24 +85,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
     this.appService.getApplicants().subscribe(
       res => {
         this.applicants = res;
         console.log('apps at home', this.applicants);
       });
-
     this.appService.getJobs().subscribe(
       res => {
         this.jobs = res;
       }
     );
-
     this.appService.getCanStartFilteredApplicants().subscribe(
       res => {
         this.canStartNow = res;
       });
-
-      
   }
 }

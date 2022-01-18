@@ -7,8 +7,12 @@
     <clr-dg-column>Experiencee</clr-dg-column>
     <clr-dg-column>Skills</clr-dg-column>
     <clr-dg-row *ngFor="let app of applicants; let i = index" [attr.data-index]="i">
-      <clr-dg-cell>
-        <button (click)="deleteApplicant(app.app_id)">Delete</button>
+      <clr-dg-cell style='display: flex'>
+        <div style='display: flex; flex-direction: row; justify-content: space-around;'>
+          <button>Edit</button>
+          <a style="margin-left: 10px;">/</a>
+          <button (click)="deleteApplicant(app.app_id)" style="margin-left: 10px;">Delete</button>
+        </div>
       </clr-dg-cell>
       <clr-dg-cell>{{app.first_name + ' ' + app.last_name}}</clr-dg-cell>
       <clr-dg-cell>{{app.email}}</clr-dg-cell>
