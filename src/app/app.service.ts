@@ -8,7 +8,7 @@ import { Applicants } from './home/home.component';
 })
 export class AppService {
 
-  constructor(public httpClient:HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 
   getApplicants(): Observable<any> {
     return this.httpClient.get('http://localhost:3001/applicants');
@@ -22,8 +22,13 @@ export class AppService {
     return this.httpClient.get('http://localhost:3001/applicants/can_start_now');
   }
 
-addApplicant(data:Applicants): Observable<any> {
-  console.log(data);
-  return this.httpClient.post('http://localhost:3001/applicants', data);
+  addApplicant(data: Applicants): Observable<any> {
+    console.log(data);
+    return this.httpClient.post('http://localhost:3001/applicants', data);
+  };
+
+  deleteApplicant(app_id: any): Observable<any> {
+    console.log("id in service func", app_id);
+    return this.httpClient.delete('http://localhost:3001/applicants/' + app_id);
+  };
 };
-}

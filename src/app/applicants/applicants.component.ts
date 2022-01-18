@@ -15,6 +15,23 @@ export class ApplicantsComponent extends HomeComponent {
     super(appService, modalService)
   }
 
+
+  deleteApplicant(app_id: any) {
+    console.log('id at app.ts',app_id);
+    this.appService.deleteApplicant(app_id).subscribe(
+      data => {
+        console.log("data in promise func",data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    
+    this.applicants = this.applicants.filter(applicant => applicant.app_id !== app_id);
+  }
+
+
+
 }
 
 

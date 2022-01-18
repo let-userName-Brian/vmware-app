@@ -16,7 +16,7 @@ app.listen(Port, () => {
     console.log(`Server is running on port ${Port}`);
 });
 
-//routes
+//Applicant routes
 app.get('/applicants', (_, res) => {
     const query = knex('applicants').select('*');
     query.then(data => {
@@ -33,7 +33,26 @@ app.post('/applicants', (req, res) => {
     });
 });
 
+//delete applicant based on Id
+app.delete(`/applicants/:app_id`, (req, res) => {
+    const { app_id } = req.params;
+    const query = knex('applicants').where('app_id', app_id).del();
+    query.then(data => {
+        res.send(data);
+    });
+});
 
+//get applicants that can_start_now === true
+app.get('/applicants/can_start_now', (_, res) => {
+    const query = knex('applicants').select('*').where('can_start_now', true);
+    query.then(data => {
+        res.send(data);
+    });
+});
+
+
+
+//job rouutes 
 app.get('/jobs', (_, res) => {
     const query = knex('jobs').select('*');
     query.then(data => {
@@ -52,11 +71,4 @@ app.patch('/jobs/:id', (req, res) => {
 });
 
 
-//get applicants that can_start_now === true
-app.get('/applicants/can_start_now', (_, res) => {
-    const query = knex('applicants').select('*').where('can_start_now', true);
-    query.then(data => {
-        res.send(data);
-    });
-});
 
