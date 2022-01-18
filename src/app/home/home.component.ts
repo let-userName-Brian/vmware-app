@@ -47,7 +47,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('modal', { read: ViewContainerRef })
   entry!: ViewContainerRef;
   sub!: Subscription  
-  
+  applicantsToJobs(applicant: Applicants) {
+    let jobsApplied = applicant.jobs_applied || [];
+    let jobsAppliedTo = [] as Array<Jobs>;  //create empty array
+    for (let i = 0; i < jobsApplied.length; i++) {
+      for (let j = 0; j < this.jobs.length; j++) {
+        if (jobsApplied[i] === this.jobs[j].job_id) {
+          jobsAppliedTo.push(this.jobs[j]);
+        }
+      }
+    }
+    return jobsAppliedTo;
+  }
+
   openModal() {
     this.modalService.openModal(this.entry, {
       first_name: '',
@@ -61,30 +73,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe();
+    this.ngOnInit();
   }
 
-  addApplicantButtonClicked(applicant: Applicants) {
-    this.appService.addApplicant(applicant).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    //update component when applicants are added
-    this.sub = this.appService.getApplicants().subscribe(
-      (data) => {
-        this.applicants = data;
-        this.canStartNow = this.applicants.filter(applicant => applicant.can_start_now);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  ngOnInit() {
+  ngOnInit(){
     this.appService.getApplicants().subscribe(
       res => {
         this.applicants = res;
@@ -99,5 +91,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       res => {
         this.canStartNow = res;
       });
+
   }
 }
