@@ -48,7 +48,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   sub!: Subscription  
   
   openModal() {
-    this.modalService.openModal(this.entry, 'Confirm', 'Are you sure you want to add this applicant?');
+    this.modalService.openModal(this.entry, {
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone: '',
+      skills: [],
+      experience: '',
+    });
     // this.modalService.subscribe(
     //   (data) => {
     //     if (data === 'confirm') {
@@ -58,13 +65,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     // );
   }
 
-  // openModal() {
-  //   this.sub = this.modalService
-  //     .openModal(this.entry, 'Are you sure ?', 'click confirm or close')
-  //     // .subscribe((v) => {
-  //     //   //your logic
-  //     // });
-  // }
   ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe();
   }

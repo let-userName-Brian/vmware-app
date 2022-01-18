@@ -19,3 +19,15 @@
 button{
     margin: 10px;
 }
+
+label{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

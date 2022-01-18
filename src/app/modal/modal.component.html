@@ -1,6 +1,5 @@
 <div class="modal-container">
-    <div
-      style="
+  <div style="
         width: 500px;
         height: auto;
         border: #00364d 3px solid;
@@ -11,13 +10,53 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-      "
-    >
-      <h2 class="title">Great, lets add a new applicant!</h2>
-      
-      <div class="btn-container">
-        <button style="border: solid; border-radius: 10px; border-width: 1px; background-color: #00364d; color:blanchedalmond; width: 100px;" (click)="closeMe()">Close</button>
-        <button style="border: solid; border-radius: 10px; border-width: 1px; background-color: #00364d; color:blanchedalmond; width: 100px;" (click)="confirm()">Confirm</button>
-      </div>
+      ">
+    <h2 class="title">Great, lets add a new applicant!</h2>
+    <form clrForm>
+      <clr-input-container>
+        <label>First Name</label>
+        <input placeholder="Applicant's first name" clrInput id="this.NgModel.first_name" input="this.NgModel.first_name" required />
+        <clr-control-error>You must provide your first name!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Last Name</label>
+        <input placeholder="Applicant's last name" clrInput  name="lastname" required />
+        <clr-control-error>You must provide your last name!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Email</label>
+        <input placeholder="Applicant's email" clrInput name="email" required />
+        <clr-control-error>You must provide email!</clr-control-error>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Phone Nuber</label>
+        <input placeholder="Applicant' phone number" clrInput name="number" required />
+        <clr-control-error>You must provide a number!</clr-control-error>
+        <clr-control-helper>include area code and hyphens. Ex: 111-111-1111</clr-control-helper>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Experience</label>
+        <input placeholder="Applicant's experience" clrInput name="experience" required />
+        <clr-control-error>You must provide experience!</clr-control-error>
+        <clr-control-helper>Seperate with a comma</clr-control-helper>
+      </clr-input-container>
+      <clr-input-container>
+        <label>Skills</label>
+        <input placeholder="Applicant's skills" clrInput name="skills" required />
+        <clr-control-error>Come on...they've gotta have some kind of skills??? right?</clr-control-error>
+        <clr-control-helper>Seperate with a comma</clr-control-helper>
+      </clr-input-container>
+    </form>
+    <div class="btn-container">
+      <button
+        style="border: solid; border-radius: 10px; border-width: 1px; background-color: #00364d; color:blanchedalmond; width: 100px;"
+        (click)="closeMe()">Close</button>
+      <button
+        style="border: solid; border-radius: 10px; border-width: 1px; background-color: #00364d; color:blanchedalmond; width: 100px;"
+        (click)="confirm()">Confirm</button>
     </div>
   </div>
+</div>
+
+
+<!-- bind like this [(ngModel)]="lastName" -->
