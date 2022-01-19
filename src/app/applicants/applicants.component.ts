@@ -3,6 +3,7 @@ import { AppService } from '../app.service';
 import { HomeComponent } from '../home/home.component';
 import { ModalService } from '../shared/shared.service';
 import { Applicants } from '../home/home.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-applicants',
@@ -12,8 +13,8 @@ import { Applicants } from '../home/home.component';
 
 export class ApplicantsComponent extends HomeComponent {
 
-  constructor(appService: AppService, modalService: ModalService)  { 
-    super(appService, modalService)
+  constructor(appService: AppService, modalService: ModalService, dialogRef: MatDialog) {
+    super(appService, modalService, dialogRef);
   }
 
 

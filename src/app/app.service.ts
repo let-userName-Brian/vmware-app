@@ -31,4 +31,9 @@ export class AppService {
     console.log("id in service func", app_id);
     return this.httpClient.delete('http://localhost:3001/applicants/' + app_id);
   };
+
+  editApplicant(app_id: any, data: Applicants): Observable<any> {
+    console.log("id in service func", app_id);
+    return this.httpClient.patch('http://localhost:3001/applicants/' + app_id, data);
+  }
 };

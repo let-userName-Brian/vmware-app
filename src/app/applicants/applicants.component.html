@@ -9,7 +9,7 @@
     <clr-dg-row *ngFor="let app of applicants; let i = index" [attr.data-index]="i">
       <clr-dg-cell style='display: flex'>
         <div style='display: flex; flex-direction: row; justify-content: space-around;'>
-          <button>Edit</button>
+          <button (click)="openDialog(app.app_id, app)">Edit</button>
           <a style="margin-left: 10px;">/</a>
           <button (click)="deleteApplicant(app.app_id)" style="margin-left: 10px;">Delete</button>
         </div>

@@ -33,6 +33,16 @@ app.post('/applicants', (req, res) => {
     });
 });
 
+//edit applicant
+app.patch('/applicants/:id', (req, res) => {
+    const { first_name, last_name, email, phone, experience, skills } = req.body;
+    const query = knex('applicants').where('id', req.params.id).update({ first_name, last_name, email, phone, experience, skills});
+    query.then(data => {
+        res.send(data);
+    });
+});
+
+
 //delete applicant based on Id
 app.delete(`/applicants/:app_id`, (req, res) => {
     const { app_id } = req.params;

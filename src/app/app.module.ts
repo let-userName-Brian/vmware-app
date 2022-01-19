@@ -20,6 +20,8 @@ import { JobsComponent } from './jobs/jobs.component';
 import { StartNowComponent } from './start-now/start-now.component';
 import { ModalComponent } from './modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     JobsComponent,
     StartNowComponent,
     ModalComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     LayoutModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

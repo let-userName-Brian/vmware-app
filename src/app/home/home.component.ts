@@ -9,6 +9,8 @@ import {
 import { Subscription } from 'rxjs';
 import { ModalService } from '../shared/shared.service';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { EditModalComponent } from '../edit-modal/edit-modal.component';
 
 export interface Applicants {
   app_id?: number,
@@ -40,13 +42,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   jobs: Jobs[] = [];
   canStartNow: Array<Applicants> = [];
 
-  constructor(public appService: AppService, private modalService: ModalService) {
+  constructor(public appService: AppService, private modalService: ModalService, private dialogRef: MatDialog) {
 
   }
 
   @ViewChild('modal', { read: ViewContainerRef })
   entry!: ViewContainerRef;
-  sub!: Subscription  
+  sub!: Subscription
   applicantsToJobs(applicant: Applicants) {
     let jobsApplied = applicant.jobs_applied || [];
     let jobsAppliedTo = [] as Array<Jobs>;  //create empty array
@@ -59,7 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
     return jobsAppliedTo;
   }
-
+  //new applicant modal
   openModal() {
     this.modalService.openModal(this.entry, {
       first_name: '',
@@ -76,7 +78,16 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.ngOnInit();
   }
 
-  ngOnInit(){
+  //edit applicant modal
+  openDialog(app_id: any, applicant: Applicants) {
+    this.dialogRef.open(EditModalComponent, {
+      data: applicant,
+      });
+  }
+
+
+
+  ngOnInit() {
     this.appService.getApplicants().subscribe(
       res => {
         this.applicants = res;

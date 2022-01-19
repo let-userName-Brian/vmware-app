@@ -6,7 +6,6 @@ import {
   EventEmitter,
   OnDestroy,
 } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AppService } from '../app.service';
 

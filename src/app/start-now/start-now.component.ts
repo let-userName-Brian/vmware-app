@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { AppService } from '../app.service';
 import { ModalService } from '../shared/shared.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-start-now',
@@ -10,8 +11,8 @@ import { ModalService } from '../shared/shared.service';
 })
 export class StartNowComponent extends HomeComponent {
 
-  constructor(appService: AppService, modalService: ModalService) {
-    super(appService, modalService);
+  constructor(appService: AppService, modalService: ModalService, dialogRef: MatDialog) {
+    super(appService, modalService, dialogRef);
   }
 
 }
