@@ -27,12 +27,18 @@ export class EditModalComponent implements OnInit {
     this.app_id = this.app_id;
     console.log('modal apps', this.editedApplicant);
     console.log('id', this.data.app_id);
+
   }
-   
+
+ 
+
   closeDialog() {
     this.dialogRef.closeAll();
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
   confirmEdit() {
     console.log('edited applicant', this.editedApplicant);
     this.appService.editApplicant(this.editedApplicant, this.app_id).subscribe(
@@ -44,6 +50,7 @@ export class EditModalComponent implements OnInit {
         console.log('err', err);
       });
       this.dialogRef.closeAll();
+      this,this.refresh();
   }
 
   ngOnInit(): void {

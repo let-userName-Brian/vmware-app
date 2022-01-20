@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AppService } from '../app.service';
+import { Applicants } from '../home/home.component';
 
 export interface NewApplicant {
   first_name: string;
@@ -24,7 +25,7 @@ export interface NewApplicant {
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit, OnDestroy {
-  constructor(private appService:AppService) {
+  constructor(private appService: AppService) {
   }
   @Output() closeMeEvent = new EventEmitter();
   @Output() confirmEvent = new EventEmitter();
@@ -45,20 +46,24 @@ export class ModalComponent implements OnInit, OnDestroy {
     console.log(this.addApplicant.value);
     this.appService.addApplicant(this.addApplicant.value).subscribe(
       (data) => {
-        console.log(data);
-      }
-    );
+        console.log('saved data func', data);
+      });
   }
-  
+
+  refresh(): void {
+    window.location.reload();
+  }
   closeMe() {
     this.closeMeEvent.emit();
   }
   confirm() {
     this.confirmEvent.emit();
-    this.SaveApplicant()
+    this.SaveApplicant();
+    this.refresh();
   }
   ngOnDestroy(): void {
     console.log(' Modal destroyed');
+    this.appService.getApplicants()
   }
 }
 

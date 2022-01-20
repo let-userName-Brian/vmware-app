@@ -75,9 +75,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe();
-    this.ngOnInit();
+    this.appService.getApplicants().subscribe(
+      res => {
+        this.applicants = res;
+        console.log('apps at home', this.applicants);
+      });
+    this.appService.getJobs().subscribe(
+      res => {
+        this.jobs = res;
+      }
+    );
   }
 
+  
   //edit applicant modal
   openDialog(app_id: any, applicant: Applicants) {
     this.dialogRef.open(EditModalComponent, {
