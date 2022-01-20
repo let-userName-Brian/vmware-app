@@ -10,38 +10,38 @@
         align-items: center;
         flex-direction: column;
       ">
-  <h2 class="title">Great, lets add a new applicant!</h2>
-  <form>
+  <h2 class="title">Let's edit {{ editedApplicant.first_name + ' ' + editedApplicant.last_name}}</h2>
+  <form [formGroup]="editApplicant" (ngSubmit)="confirmEdit">
     <clr-input-container>
       <label>First Name</label>
-      <input placeholder="Applicant's first name" clrInput value={{editedApplicant.first_name}} required />
+      <input placeholder="Applicant's first name" clrInput formControlName="first_name" required />
       <clr-control-error>You must provide your first name!</clr-control-error>
     </clr-input-container>
     <clr-input-container>
       <label>Last Name</label>
-      <input placeholder="Applicant's last name" clrInput value={{editedApplicant.last_name}} required />
+      <input placeholder="Applicant's last name" clrInput formControlName="last_name" required />
       <clr-control-error>You must provide your last name!</clr-control-error>
     </clr-input-container>
     <clr-input-container>
       <label>Email</label>
-      <input placeholder="Applicant's email" clrInput value={{editedApplicant.email}} required />
+      <input placeholder="Applicant's email" clrInput formControlName="email" required />
       <clr-control-error>You must provide email!</clr-control-error>
     </clr-input-container>
     <clr-input-container>
       <label>Phone Nuber</label>
-      <input placeholder="Applicant' phone number" clrInput value={{editedApplicant.phone}} required />
+      <input placeholder="Applicant' phone number" clrInput formControlName="phone" required />
       <clr-control-error>You must provide a number!</clr-control-error>
       <clr-control-helper>include area code and hyphens. Ex: 111-111-1111</clr-control-helper>
     </clr-input-container>
     <clr-input-container>
       <label>Experience</label>
-      <input placeholder="Applicant's experience" clrInput value={{editedApplicant.experience}} required />
+      <input placeholder="Applicant's experience" clrInput formControlName="experience" required />
       <clr-control-error>You must provide experience!</clr-control-error>
       <clr-control-helper>Seperate with a comma</clr-control-helper>
     </clr-input-container>
     <clr-input-container>
       <label>Skills</label>
-      <input placeholder="Applicant's skills" clrInput value={{editedApplicant.skills}} required/>
+      <input placeholder="Applicant's skills" clrInput formControlName="skills" required/>
       <clr-control-error>Come on...they've gotta have some kind of skills??? right?</clr-control-error>
       <clr-control-helper>Seperate with a comma</clr-control-helper>
     </clr-input-container>

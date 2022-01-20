@@ -21,24 +21,34 @@ app.get('/applicants', (_, res) => {
     const query = knex('applicants').select('*');
     query.then(data => {
         res.send(data);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
 //add applicant 
 app.post('/applicants', (req, res) => {
     const { first_name, last_name, email, phone, experience, skills } = req.body;
-    const query = knex('applicants').insert({ first_name, last_name, email, phone, experience, skills});
+    const query = knex('applicants').insert({ first_name, last_name, email, phone, experience, skills });
     query.then(data => {
         res.send(data);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
 //edit applicant
-app.patch('/applicants/:id', (req, res) => {
+app.patch('/applicants/:app_id', (req, res) => {
+    const { app_id } = req.params;
     const { first_name, last_name, email, phone, experience, skills } = req.body;
-    const query = knex('applicants').where('id', req.params.id).update({ first_name, last_name, email, phone, experience, skills});
+    const query = knex('applicants').where('app_id', app_id).update({ first_name, last_name, email, phone, experience, skills });
     query.then(data => {
-        res.send(data);
+        res.sendStatus(data ? 200 : 500);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
@@ -48,7 +58,10 @@ app.delete(`/applicants/:app_id`, (req, res) => {
     const { app_id } = req.params;
     const query = knex('applicants').where('app_id', app_id).del();
     query.then(data => {
-        res.send(data);
+        res.sendStatus(data ? 200 : 500);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
@@ -57,16 +70,22 @@ app.get('/applicants/can_start_now', (_, res) => {
     const query = knex('applicants').select('*').where('can_start_now', true);
     query.then(data => {
         res.send(data);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
 
 
-//job rouutes 
+//job routes 
 app.get('/jobs', (_, res) => {
     const query = knex('jobs').select('*');
     query.then(data => {
         res.send(data);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
@@ -76,7 +95,10 @@ app.patch('/jobs/:id', (req, res) => {
     const { title, description, experience, skills } = req.body;
     const query = knex('jobs').where('id', id).update({ title, description, experience, skills });
     query.then(data => {
-        res.send(data);
+        res.sendStatus(data ? 200 : 500);
+    })
+    .catch(err => {
+        console.log(err);
     });
 });
 
