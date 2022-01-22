@@ -12,12 +12,12 @@
       ">
   <h2 class="title">Let's edit {{ editedApplicant.first_name + ' ' + editedApplicant.last_name}}</h2>
   <form [formGroup]="editApplicant" (ngSubmit)="confirmEdit">
-    <clr-input-container>
+    <clr-input-container class="first-name-field">
       <label>First Name</label>
       <input placeholder="Applicant's first name" clrInput formControlName="first_name" required />
       <clr-control-error>You must provide your first name!</clr-control-error>
     </clr-input-container>
-    <clr-input-container>
+    <clr-input-container class="last-name-field">
       <label>Last Name</label>
       <input placeholder="Applicant's last name" clrInput formControlName="last_name" required />
       <clr-control-error>You must provide your last name!</clr-control-error>
@@ -49,6 +49,6 @@
   <div class="btn-container">
     <button
       style="border: solid; border-radius: 10px; border-width: 1px; background-color: #00364d; color:blanchedalmond; width: 100px;" (click)="closeDialog()">Close</button>
-    <button type="submit"
+    <button type="submit" class="submit-button"
       style="border: solid; border-radius: 10px; border-width: 1px; background-color: #00364d; color:blanchedalmond; width: 100px;"(click)="confirmEdit()">Confirm</button>
   </div>

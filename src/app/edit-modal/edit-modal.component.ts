@@ -26,8 +26,6 @@ export class EditModalComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: Applicants, private dialogRef: MatDialog, public appService: AppService) {
     this.editedApplicant = data;
     this.app_id = this.data.app_id;
-    // console.log('before edit', this.editedApplicant);
-    // console.log('id', this.data.app_id);
   }
    
   editApplicant = new FormGroup({

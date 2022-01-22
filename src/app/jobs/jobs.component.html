@@ -4,7 +4,7 @@
     <clr-stack-content>Experience Needed</clr-stack-content>
   </clr-stack-block>
   <clr-stack-block [clrStackViewLevel]="1" [clrStackViewSetsize]="3" [clrStackViewPosinset]="2"
-  *ngFor="let job of jobs; let i = index" [attr.data-index]="i">
+  *ngFor="let job of jobs; let i = index" [attr.data-index]="i" class="job-accordian">
     <clr-stack-label>{{job.title}}</clr-stack-label>
     <clr-stack-content>{{job.experience}}</clr-stack-content>
     <clr-stack-block>
