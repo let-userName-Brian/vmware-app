@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AppService } from '../app.service';
 import { HomeComponent } from '../home/home.component';
 import { ModalService } from '../shared/shared.service';
@@ -16,7 +16,6 @@ export class ApplicantsComponent extends HomeComponent {
   constructor(appService: AppService, modalService: ModalService, dialogRef: MatDialog) {
     super(appService, modalService, dialogRef);
   }
-
 
   deleteApplicant(app_id: any) {
     console.log('id at app.ts',app_id);
@@ -42,7 +41,6 @@ export class ApplicantsComponent extends HomeComponent {
       }
     );
     this.ngOnInit();
-    //update component when applicants are added
     this.sub = this.appService.getApplicants().subscribe(
       (data) => {
         this.applicants = data;
@@ -54,7 +52,6 @@ export class ApplicantsComponent extends HomeComponent {
     );
     this.applicants.push(applicant);
   }
-
 }
 
 

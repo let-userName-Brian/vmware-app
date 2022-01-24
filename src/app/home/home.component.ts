@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ModalService } from '../shared/shared.service';
-import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModalComponent } from '../edit-modal/edit-modal.component';
 
@@ -49,6 +48,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('modal', { read: ViewContainerRef })
   entry!: ViewContainerRef;
   sub!: Subscription
+
+  //shold have done this on the backend side and used innerJoin ----- Refactor before implementing
   applicantsToJobs(applicant: Applicants) {
     let jobsApplied = applicant.jobs_applied || [];
     let jobsAppliedTo = [] as Array<Jobs>;  //create empty array

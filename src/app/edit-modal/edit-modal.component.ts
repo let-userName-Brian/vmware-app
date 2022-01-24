@@ -46,7 +46,6 @@ export class EditModalComponent implements OnInit {
     window.location.reload();
   }
   confirmEdit() {
-    //console.log('edited applicant', this.editApplicant.value);
     let editedApplicant = this.editApplicant.value;
     this.appService.editApplicant(this.app_id, editedApplicant).subscribe(
       res => {
