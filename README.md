@@ -11,10 +11,10 @@ that was corporate focused. My vision was to create a hiring manager dashboard t
 showed the applicants, jobs, and start availability. I wanted to be able to see
 a list of all applicants, their skills, experience, jobs applied for, email, and 
 phone number. I then wanted to be able to add a new applicant, edit a current applicant,
-and the dreaded....remove an applicant for the running. 
+and the dreaded....remove an applicant from the running. 
 
 I also wanted to be able to see a list of jobs available at the company with all
-pertinent information but keep it elegant!
+pertinent information, but keep it elegant!
 
 
 
